@@ -14,16 +14,38 @@ Este repositório mantém uma coleção curada de dashboards Datadog em formato 
 
 ```
 datadog-dashboards/
-├── dashboards/           # Dashboards em formato JSON
-│   └── rum-apdex-3-pilares.json
-└── README.md            # Este arquivo
+├── docs/                      # Documentação GitHub Pages
+│   ├── index.md              # Página principal da documentação
+│   ├── _config.yml           # Configuração Jekyll
+│   └── dashboards/           # Páginas de documentação dos dashboards
+│       └── rum-apdex-3-pilares.md
+│
+├── dashboards/               # Dashboards em formato JSON
+│   └── rum-apdex-3-pilares/
+│       ├── README.md
+│       └── rum-apdex-3-pilares.json
+│
+└── README.md                 # Este arquivo
 ```
+
+## 🌐 Documentação Online
+
+Acesse a documentação completa online através do GitHub Pages:
+
+**🔗 [https://ruanpiano.github.io/datadog-dashboards/](https://ruanpiano.github.io/datadog-dashboards/)**
+
+A documentação inclui:
+- Guias detalhados de cada dashboard
+- Instruções de importação
+- Exemplos de uso
+- Interpretação de métricas
 
 ## 🏛️ Dashboards Disponíveis
 
 ### 1. RUM Apdex - 3 Pilares da Experiência do Usuário
 
-**Arquivo:** [`dashboards/rum-apdex-3-pilares.json`](./dashboards/rum-apdex-3-pilares.json)
+**Diretório:** [`dashboards/rum-apdex-3-pilares/`](./dashboards/rum-apdex-3-pilares/)  
+**Documentação:** [📖 Ver documentação online](https://ruanpiano.github.io/datadog-dashboards/dashboards/rum-apdex-3-pilares.html)
 
 Dashboard estratégico que aplica a metodologia **Apdex (Application Performance Index)** aos dados de RUM, consolidando performance e usabilidade em um único índice de 0 a 1.
 
@@ -167,25 +189,45 @@ Gráficos usam `yaxis.scale: "pow"` para:
    - Abra o dashboard → Settings (⚙️) → Export Dashboard JSON
    - Copie o JSON completo
 
-2. **Adicione ao Repositório:**
+2. **Crie a estrutura de diretório:**
    ```bash
-   # Crie arquivo com nome descritivo
-   touch dashboards/seu-dashboard-nome.json
+   # Crie um diretório para o dashboard
+   mkdir -p dashboards/nome-do-dashboard
    
-   # Cole o JSON exportado
-   # Valide a estrutura
-   python3 -m json.tool dashboards/seu-dashboard-nome.json
+   # Adicione o arquivo JSON
+   touch dashboards/nome-do-dashboard/nome-do-dashboard.json
+   
+   # Crie o README do dashboard
+   touch dashboards/nome-do-dashboard/README.md
    ```
 
-3. **Documente no README:**
-   - Adicione entrada na seção "Dashboards Disponíveis"
-   - Explique objetivo e métricas principais
-   - Liste template variables utilizadas
+3. **Adicione o JSON exportado:**
+   - Cole o JSON no arquivo criado
+   - Valide a estrutura:
+   ```bash
+   python3 -m json.tool dashboards/nome-do-dashboard/nome-do-dashboard.json
+   ```
 
-4. **Crie Pull Request:**
+4. **Documente o dashboard:**
+   - Preencha o `README.md` no diretório do dashboard com:
+     - Descrição e objetivo
+     - Métricas principais
+     - Template variables
+     - Guia de uso
+   
+5. **Crie a página de documentação:**
+   - Crie `docs/dashboards/nome-do-dashboard.md`
+   - Use o template dos dashboards existentes
+   - Adicione link no `docs/index.md`
+
+6. **Atualize o README principal:**
+   - Adicione entrada na seção "Dashboards Disponíveis"
+   - Inclua link para documentação online
+
+7. **Crie Pull Request:**
    ```bash
    git checkout -b add-dashboard-nome
-   git add dashboards/seu-dashboard-nome.json README.md
+   git add dashboards/nome-do-dashboard/ docs/dashboards/nome-do-dashboard.md docs/index.md README.md
    git commit -m "feat: adiciona dashboard de [descrição]"
    git push origin add-dashboard-nome
    ```
