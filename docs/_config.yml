@@ -1,0 +1,42 @@
+title: Datadog Dashboards
+description: Coleção de Dashboards RUM para Datadog
+theme: jekyll-theme-cayman
+baseurl: "/datadog-dashboards"
+url: "https://ruanpiano.github.io"
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Dashboards
+    url: /dashboards/
+
+# Markdown processor
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-relative-links
+
+# Settings
+show_downloads: true
+google_analytics: 
+
+# Collections
+collections:
+  dashboards:
+    output: true
+    permalink: /dashboards/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "dashboards"
+    values:
+      layout: "default"
