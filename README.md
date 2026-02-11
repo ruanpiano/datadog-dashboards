@@ -40,6 +40,8 @@ A documentação inclui:
 - Exemplos de uso
 - Interpretação de métricas
 
+> **📝 Nota:** Para ativar o GitHub Pages pela primeira vez, consulte o [Guia de Configuração](./GITHUB_PAGES_SETUP.md).
+
 ## 🏛️ Dashboards Disponíveis
 
 ### 1. RUM Apdex - 3 Pilares da Experiência do Usuário
